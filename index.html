@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nunes &amp; Neves Advocacia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FFFFFF;
+    --ivory-2:#EFF3F8;
+    --teal-deep:#001B3D;
+    --teal-mid:#0B2C56;
+    --gold:#2C5C94;
+    --gold-soft:#BFD6EE;
+    --sage:#5E82AC;
+    --cream:#FFFFFF;
+    --ink:#001B3D;
+    --ink-soft:#46536B;
+    --whatsapp:#25D366;
+    --line:rgba(0,27,61,0.14);
+    --btn-bg:#001B3D;
+    --btn-text:#FFFFFF;
+    --btn-bg-hover:#0B2C56;
+  }
+  html[data-theme="dark"]{
+    --ivory:#001B3D;
+    --ivory-2:#0B2C56;
+    --teal-deep:#00142B;
+    --teal-mid:#17375E;
+    --gold:#BFD6EE;
+    --gold-soft:#BFD6EE;
+    --sage:#7FA3CC;
+    --cream:#FFFFFF;
+    --ink:#F3F6FA;
+    --ink-soft:#A9BCD4;
+    --line:rgba(255,255,255,0.16);
+    --btn-bg:#FFFFFF;
+    --btn-text:#001B3D;
+    --btn-bg-hover:#DCE8F5;
+  }
+  body, header, .hero, .stats, .areas, .how, .partners, footer,
+  .area-card, .partner-card, .stat, .nav-links a, .logo, .btn-primary,
+  .nav-cta, .theme-toggle, h1, h2, h3, p, a, span{
+    transition:background-color .35s ease, color .35s ease, border-color .35s ease;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Bodoni Moda',serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  /* respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(0,27,61,0.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:88px;
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .logo{
+    font-family:'Bodoni Moda',serif;
+    font-size:1.1rem;
+    color:var(--cream);
+    letter-spacing:0.06em;
+    line-height:1.3;
+  }
+  .logo strong{font-weight:600;}
+  .logo .amp{color:var(--gold-soft);font-weight:400;}
+  .logo small{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.56rem;
+    letter-spacing:0.28em;
+    color:var(--gold-soft);
+    margin-top:3px;
+  }
+  .nav-links{display:flex;gap:38px;font-size:0.92rem;color:rgba(255,255,255,0.72);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .25s;}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold-soft);transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,0.5);
+    padding:10px 18px;
+    border-radius:2px;
+    transition:background .25s, color .25s, border-color .25s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--teal-deep);border-color:var(--cream);}
+
+  .nav-right{display:flex;align-items:center;gap:16px;}
+
+  .theme-toggle{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.5);
+    background:transparent;color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;padding:0;flex-shrink:0;
+    transition:background .25s, border-color .25s, transform .3s;
+  }
+  .theme-toggle:hover{background:rgba(255,255,255,0.12);transform:rotate(12deg);}
+  .theme-toggle svg{width:19px;height:19px;}
+  .theme-toggle .icon-sun{display:none;}
+  .theme-toggle .icon-moon{display:block;}
+  html[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+  html[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+
+  .burger{display:none;}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-cta{padding:8px 14px;font-size:0.72rem;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:190px 0 120px;
+    background:
+      radial-gradient(ellipse at 82% 8%, rgba(44,92,148,0.08), transparent 55%),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .pulse-bg{
+    position:absolute;
+    left:0;right:0;bottom:60px;
+    width:100%;height:140px;
+    opacity:0.35;
+    pointer-events:none;
+  }
+  .pulse-bg path{
+    fill:none;
+    stroke:var(--sage);
+    stroke-width:1.4;
+    stroke-dasharray:2000;
+    stroke-dashoffset:2000;
+    animation:draw 3.2s ease forwards 0.4s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  .hero-inner{position:relative;z-index:2;max-width:760px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.2vw, 4.1rem);
+    line-height:1.08;
+    margin:22px 0 26px;
+  }
+  .hero h1 em{color:var(--gold);font-style:italic;font-weight:400;}
+  .hero p.lead{
+    font-size:1.14rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin-bottom:38px;
+  }
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--btn-bg);color:var(--btn-text);
+    padding:16px 28px;border-radius:2px;
+    font-size:0.92rem;font-weight:500;
+    transition:background .25s, transform .25s;
+  }
+  .btn-primary:hover{background:var(--btn-bg-hover);transform:translateY(-1px);}
+  .btn-primary svg{width:18px;height:18px;}
+
+  /* stats strip */
+  .stats{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--ivory-2);
+  }
+  .stats-inner{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    max-width:1120px;margin:0 auto;
+  }
+  .stat{
+    padding:38px 32px;
+    text-align:left;
+    border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;}
+  .stat .num{
+    font-family:'Bodoni Moda',serif;font-size:2.1rem;color:var(--ink);font-weight:500;
+  }
+  .stat .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;
+    color:var(--ink-soft);text-transform:uppercase;margin-top:6px;
+  }
+  @media(max-width:700px){
+    .stats-inner{grid-template-columns:1fr;}
+    .stat{border-left:none;border-top:1px solid var(--line);}
+    .stat:first-child{border-top:none;}
+  }
+
+  /* ---------- SECTION shared ---------- */
+  section{padding:110px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:16px;line-height:1.2;}
+  .section-head p{color:var(--ink-soft);margin-top:16px;font-size:1.02rem;line-height:1.6;}
+
+  /* ---------- ATUAÇÃO ---------- */
+  .areas{background:var(--teal-deep);color:var(--cream);}
+  .areas .eyebrow{color:var(--gold-soft);}
+  .areas .eyebrow::before{background:var(--gold-soft);}
+  .areas .section-head h2{color:var(--cream);}
+  .areas .section-head p{color:rgba(255,255,255,0.72);}
+  .areas-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.14);
+  }
+  .area-card{
+    background:var(--teal-deep);
+    padding:34px 32px;
+    transition:background .3s;
+  }
+  .area-card:hover{background:var(--teal-mid);}
+  .area-card .num{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--gold-soft);
+  }
+  .area-card h3{
+    color:var(--cream);font-weight:400;font-size:1.24rem;margin:14px 0 10px;
+  }
+  .area-card p{color:rgba(255,255,255,0.68);font-size:0.94rem;line-height:1.55;}
+  @media(max-width:700px){.areas-grid{grid-template-columns:1fr;}}
+
+  /* ---------- COMO FUNCIONA ---------- */
+  .how{background:var(--ivory);}
+  .how-steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:44px;
+    position:relative;
+  }
+  .how-steps::before{
+    content:"";position:absolute;top:26px;left:8%;right:8%;height:1px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 14px);
+    opacity:0.5;
+  }
+  .step{position:relative;}
+  .step .dot{
+    width:52px;height:52px;border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Bodoni Moda',serif;color:var(--gold);background:var(--ivory);
+    position:relative;z-index:2;
+    font-size:1.1rem;
+  }
+  .step h3{font-size:1.15rem;margin:20px 0 10px;font-weight:500;}
+  .step p{color:var(--ink-soft);font-size:0.95rem;line-height:1.6;}
+  @media(max-width:760px){
+    .how-steps{grid-template-columns:1fr;gap:36px;}
+    .how-steps::before{display:none;}
+  }
+
+  /* ---------- SÓCIOS ---------- */
+  .partners{background:var(--ivory-2);}
+  .partners-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .partner-card{
+    background:var(--ivory-2);
+    padding:44px 40px;
+  }
+  .partner-photo{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Bodoni Moda',serif;color:var(--gold-soft);font-size:1.3rem;
+    margin-bottom:22px;
+  }
+  .partner-card h3{font-size:1.4rem;margin-bottom:6px;}
+  .partner-oab{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--gold);
+    letter-spacing:0.03em;margin-bottom:18px;display:block;
+  }
+  .partner-card p{color:var(--ink-soft);font-size:0.96rem;line-height:1.68;}
+  @media(max-width:760px){.partners-grid{grid-template-columns:1fr;}}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--teal-deep);color:rgba(255,255,255,0.72);padding:70px 0 34px;}
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.14);
+    flex-wrap:wrap;gap:36px;
+  }
+  .footer-brand .logo{color:var(--cream);font-size:1.3rem;margin-bottom:12px;}
+  .footer-brand .logo span{color:var(--gold-soft);}
+  .footer-brand p{max-width:320px;font-size:0.9rem;line-height:1.6;}
+  .footer-partners{display:flex;gap:60px;flex-wrap:wrap;}
+  .footer-partners .fp h4{
+    font-family:'Bodoni Moda',serif;font-weight:400;color:var(--cream);font-size:1.02rem;margin-bottom:6px;
+  }
+  .footer-partners .fp span{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--gold-soft);
+  }
+  .footer-bottom{
+    display:flex;justify-content:space-between;padding-top:28px;
+    font-size:0.8rem;flex-wrap:wrap;gap:10px;
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:200;
+    width:60px;height:60px;border-radius:50%;
+    background:var(--whatsapp);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,20,43,0.28);
+    animation:pulseWa 2.8s ease-in-out infinite;
+  }
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+  @keyframes pulseWa{
+    0%,100%{box-shadow:0 8px 24px rgba(0,20,43,0.28), 0 0 0 0 rgba(37,211,102,0.4);}
+    50%{box-shadow:0 8px 24px rgba(0,20,43,0.28), 0 0 0 10px rgba(37,211,102,0);}
+  }
+  @media(max-width:640px){
+    .wa-float{width:54px;height:54px;bottom:18px;right:18px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <div class="logo"><strong>Nunes</strong> <span class="amp">&amp;</span> Neves<small>Advocacia</small></div>
+    </div>
+    <div class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#socios">Sócios</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/>
+        </svg>
+      </button>
+      <a class="nav-cta" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20meu%20caso." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Advocacia em direito da saúde</p>
+    <h1>Quando a saúde falha,<br>o <em>direito</em> responde.</h1>
+    <p class="lead">Defendemos pacientes e famílias diante de negativas de planos de saúde, erros médicos e decisões que colocam burocracia acima da vida. Atendimento próximo, direto e sem complicação.</p>
+    <a class="btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20meu%20caso." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.37-1.2l-.31-.18-3 .79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+      Fale com um advogado agora
+    </a>
+  </div>
+  <svg class="pulse-bg" viewBox="0 0 1120 140" preserveAspectRatio="none">
+    <path d="M0,70 L280,70 L320,20 L360,120 L400,70 L440,70 L470,50 L500,90 L530,70 L1120,70"/>
+  </svg>
+</section>
+
+<div class="stats">
+  <div class="stats-inner wrap" style="padding:0;">
+    <div class="stat"><div class="num" style="font-size:1.5rem;">Resposta rápida</div><div class="lbl">Retorno em até 24h pelo WhatsApp</div></div>
+    <div class="stat"><div class="num" style="font-size:1.5rem;">Direto com os sócios</div><div class="lbl">Sem intermediários, do início ao fim</div></div>
+    <div class="stat"><div class="num" style="font-size:1.5rem;">Sem burocracia</div><div class="lbl">Nada de formulários ou longas esperas</div></div>
+  </div>
+</div>
+
+<section class="areas" id="atuacao">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Áreas de atuação</p>
+      <h2>Atuamos exclusivamente em causas de saúde — do diagnóstico à decisão final.</h2>
+      <p>Cada área abaixo nasce de um mesmo princípio: o paciente não pode esperar enquanto uma operadora ou instituição decide se cumpre o que deve.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <div class="num mono">01</div>
+        <h3>Negativa de cobertura</h3>
+        <p>Recusa de exames, cirurgias, internações ou tratamentos por planos de saúde.</p>
+      </div>
+      <div class="area-card">
+        <div class="num mono">02</div>
+        <h3>Erro e negligência médica</h3>
+        <p>Falhas de diagnóstico, procedimento ou pós-operatório com dano ao paciente.</p>
+      </div>
+      <div class="area-card">
+        <div class="num mono">03</div>
+        <h3>Reajustes abusivos</h3>
+        <p>Aumentos de mensalidade fora dos limites legais, por idade ou sinistralidade.</p>
+      </div>
+      <div class="area-card">
+        <div class="num mono">04</div>
+        <h3>Medicamentos de alto custo</h3>
+        <p>Fornecimento de medicações e terapias negadas por plano ou pelo SUS.</p>
+      </div>
+      <div class="area-card">
+        <div class="num mono">05</div>
+        <h3>Home care e cuidados contínuos</h3>
+        <p>Manutenção de atendimento domiciliar indevidamente suspenso ou reduzido.</p>
+      </div>
+      <div class="area-card">
+        <div class="num mono">06</div>
+        <h3>Cirurgias e internações</h3>
+        <p>Liberação urgente de procedimentos e leitos negados sem justificativa técnica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Três passos, sem burocracia.</h2>
+      <p>Não usamos formulários. O primeiro contato é humano, direto pelo WhatsApp — e assim seguimos até o fim do processo.</p>
+    </div>
+    <div class="how-steps">
+      <div class="step">
+        <div class="dot mono">1</div>
+        <h3>Você nos conta o caso</h3>
+        <p>Envie uma mensagem pelo WhatsApp descrevendo o que aconteceu. Sem cadastros, sem espera.</p>
+      </div>
+      <div class="step">
+        <div class="dot mono">2</div>
+        <h3>Analisamos a viabilidade</h3>
+        <p>Nossa equipe avalia os documentos e define, com você, a estratégia mais rápida e segura.</p>
+      </div>
+      <div class="step">
+        <div class="dot mono">3</div>
+        <h3>Acompanhamento até o fim</h3>
+        <p>Você recebe atualizações claras em cada etapa, direto com o advogado responsável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners" id="socios">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Sócios</p>
+      <h2>Quem conduz o seu caso.</h2>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-photo mono">AN</div>
+        <span class="partner-oab" style="margin-bottom:2px;">Sócio 1</span>
+        <h3>Arthur Nunes</h3>
+        <span class="partner-oab">OAB/SP 000.000</span>
+        <p>Sócio-fundador do escritório. Responsável pela área de direito da saúde, com atuação voltada a negativas de cobertura, reajustes abusivos e ações contra planos de saúde.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-photo mono">S2</div>
+        <span class="partner-oab" style="margin-bottom:2px;">Sócio 2</span>
+        <h3>Nome do sócio</h3>
+        <span class="partner-oab">OAB/SP 000.000</span>
+        <p>Sócio-fundador do escritório. Responsável pela área de responsabilidade civil médica e hospitalar, com atenção próxima a cada caso de erro e negligência médica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px;">
+          <div class="logo" style="color:var(--cream);"><strong>Nunes</strong> <span class="amp" style="color:var(--gold-soft);">&amp;</span> Neves<small>Advocacia</small></div>
+        </div>
+        <p>Escritório dedicado a pacientes e famílias em causas de saúde, em todo o Brasil.</p>
+      </div>
+      <div class="footer-partners">
+        <div class="fp">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--gold-soft);letter-spacing:0.08em;">SÓCIO 1</span>
+          <h4>Arthur Nunes</h4>
+          <span>OAB/SP 000.000</span>
+        </div>
+        <div class="fp">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--gold-soft);letter-spacing:0.08em;">SÓCIO 2</span>
+          <h4>Nome do sócio</h4>
+          <span>OAB/SP 000.000</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nunes &amp; Neves Advocacia</span>
+      <span>© 2026 · Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20meu%20caso." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.37-1.2l-.31-.18-3 .79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var toggle = document.getElementById('themeToggle');
+    if(!toggle) return;
+    toggle.addEventListener('click', function(){
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>
