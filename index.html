@@ -301,14 +301,26 @@
     }
   
     @media(max-width:860px) {
-      .nav-links {
-        display: none;
-      }
-  
-      .nav-cta {
-        padding: 8px 14px;
-        font-size: 0.72rem;
-      }
+      
+    nav.wrap {
+      justify-content: center;
+      position: relative;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .nav-right {
+      position: absolute;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     }
   
     /* ---------- HERO ---------- */
@@ -717,13 +729,13 @@
     /* Navbar */
   
     header .logo-img {
-      height: 100px;
+      height: 135px;
     }
   
     /* Footer */
   
     .footer-brand .logo-img {
-      height: 120px;
+      height: 150px;
     }
   
     /* Mobile */
@@ -731,11 +743,11 @@
     @media(max-width:768px) {
   
       header .logo-img {
-        height: 82px;
+        height: 120px;
       }
   
       .footer-brand .logo-img {
-        height: 95px;
+        height: 150px;
       }
   
     }
@@ -804,6 +816,7 @@
     /* Mobile */
   
     @media(max-width:768px) {
+      
   
       .footer-top {
         flex-direction: column;
@@ -933,13 +946,14 @@
 
   <section class="hero" id="inicio">
     <div class="wrap hero-inner">
-      <p class="eyebrow">Advocacia em direito da saúde</p>
-      <h1>Quando a saúde falha,<br>o <em>direito</em> responde.</h1>
-      <p class="lead">Muitos planos de saúde ainda negam tratamentos essenciais para pessoas com autismo. 
-        No entanto, essa prática, na maioria dos casos, é indevida. Quando há indicação médica, o paciente 
-        tem direito ao tratamento necessário para o seu desenvolvimento e qualidade de vida. Se o seu plano 
-        recusou a cobertura, nossa equipe pode analisar o seu caso e orientá-lo, de forma rápida e sem compromisso, 
-        sobre os seus direitos.</p>
+      <p class="eyebrow">DIREITO DOS AUTISTAS E DIREITO DA SAÚDE</p>
+      <h1>Quando o plano de saúde falha, <br> o <em>direito</em> garante o tratamento adequado.</h1>
+      <p class="lead">Muitos planos de saúde ainda negam ou limitam as terapias essenciais para o 
+        desenvolvimento e qualidade de vida da criança com autismo. No entanto, 
+        essa prática, na maioria dos casos, é indevida. Quando há indicação médica, seu filho tem 
+        direito ao tratamento necessário para o seu desenvolvimento e qualidade de vida. Se você recebeu 
+        uma negativa de cobertura, limitação de sessões ou descontinuidade das terapias, nossa equipe analisa 
+        o caso para garantir os direitos do seu filho de forma rápida e humanizada.</p>
       <a class="btn-primary"
         href="https://wa.me/053991931987?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20meu%20caso."
         target="_blank" rel="noopener">
@@ -976,40 +990,40 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Áreas de atuação</p>
-        <h2>Atuamos exclusivamente em causas de saúde — do diagnóstico à decisão final.</h2>
-        <p>Cada área abaixo nasce de um mesmo princípio: o paciente não pode esperar enquanto uma operadora ou
-          instituição decide se cumpre o que deve.</p>
+        <h2>Protegemos o direito ao tratamento integral e especializado para o autismo</h2>
+        <p>Entendemos a urgência que o desenvolvimento do seu filho exige. Atuamos para 
+          combater as principais abusividades dos planos de saúde.</p>
       </div>
       <div class="areas-grid">
         <div class="area-card">
           <div class="num mono">01</div>
-          <h3>Negativa de cobertura</h3>
-          <p>Recusa de exames, cirurgias, internações ou tratamentos por planos de saúde.</p>
+          <h3>Negativa de Método Clínico</h3>
+          <p>Recusa de cobertura para terapias específicas e baseadas em evidências, como o Método ABA.</p>
         </div>
         <div class="area-card">
           <div class="num mono">02</div>
-          <h3>Erro e negligência médica</h3>
-          <p>Falhas de diagnóstico, procedimento ou pós-operatório com dano ao paciente.</p>
+          <h3>Limitação de Sessões</h3>
+          <p>Imposição de limites anuais ou mensais para consultas com psicólogos, fonoaudiólogos e terapeutas ocupacionais.</p>
         </div>
         <div class="area-card">
           <div class="num mono">03</div>
-          <h3>Reajustes abusivos</h3>
-          <p>Aumentos de mensalidade fora dos limites legais, por idade ou sinistralidade.</p>
+          <h3>Profissionais Fora da Rede</h3>
+          <p>Direito ao reembolso integral ou custeio de profissionais especializados quando a rede credenciada for insuficiente.</p>
         </div>
         <div class="area-card">
           <div class="num mono">04</div>
-          <h3>Medicamentos de alto custo</h3>
-          <p>Fornecimento de medicações e terapias negadas por plano ou pelo SUS.</p>
+          <h3>Medicamentos Específicos</h3>
+          <p>Ações para fornecimento de medicamentos de alto custo associados ao tratamento e comorbidades.</p>
         </div>
         <div class="area-card">
           <div class="num mono">05</div>
-          <h3>Home care e cuidados contínuos</h3>
-          <p>Manutenção de atendimento domiciliar indevidamente suspenso ou reduzido.</p>
+          <h3>Home Care e Apoio Escolar</h3>
+          <p>Garantia de suporte terapêutico domiciliar ou acompanhamento especializado quando indicados pela equipe médica.</p>
         </div>
         <div class="area-card">
           <div class="num mono">06</div>
-          <h3>Cirurgias e internações</h3>
-          <p>Liberação urgente de procedimentos e leitos negados sem justificativa técnica.</p>
+          <h3>Quebra de Vínculo Contratual</h3>
+          <p>Defesa contra o cancelamento unilateral e imotivado de planos de saúde familiares durante o tratamento.</p>
         </div>
       </div>
     </div>
@@ -1081,8 +1095,9 @@
           </a>
 
           <p>
-            Escritório dedicado a pacientes e famílias
-            em causas de saúde, em todo o Brasil.
+            “Escritório dedicado a pacientes e famílias em causas de saúde, 
+            com foco no auxílio de mães e pais atípicos para garantir o correto 
+            tratamento para o TEA.”
           </p>
 
         </div>
